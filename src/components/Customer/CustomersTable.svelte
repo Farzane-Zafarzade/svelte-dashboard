@@ -1,14 +1,17 @@
 <script>
     import { createEventDispatcher } from "svelte";
-    
+
+    // Takes tableData as a prop
     export let tableData = [];
 
+    // Creating Variables for Dispatch Scripts
     const dispatch = createEventDispatcher();
 
     const tableHeading = ["First name", "Last name", "E-mail", "Phone nummber"];
   
   </script>
   
+  <!-- Displays the custmers table -->
   <table width ="100%" >
     <thead>
         <tr>

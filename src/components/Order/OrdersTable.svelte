@@ -2,12 +2,16 @@
     import { createEventDispatcher } from "svelte"; 
 
     const tableHeading = ["Order ID", "Billing Name", "Date", "Total", "Payment Status", "View Details"];
+    
+    // Takes tableData as a prop
     export let tableData=[];
 
+    // Creating Variables for Dispatch Scripts
     const dispatch = createEventDispatcher();
 
   </script>
   
+  <!-- Displays the orders table -->
   <table width ="100%" >
     <thead>
         <tr>

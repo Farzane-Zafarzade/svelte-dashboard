@@ -9,7 +9,7 @@
       let lastName="";
       let email="";
       let mobil="";
-  
+  // Checks if id is not null display the customer's data to edit
     if(id){
       const unsubscribe = customers.subscribe(items => {
         const selectedCustomer = items.find(i => i.ID === id);
@@ -20,13 +20,15 @@
       });
       unsubscribe();
     }
-  
+  // Creating Variables for Dispatch Scripts
     const dispatch = createEventDispatcher();
-  
+
+  // Dispatching cancel-signal to parent component
     function cancel(){
       dispatch("cancel");
     }
-  
+
+  // Creates a new customer or updates the data of an existing customer in the customers
     function submitForm() {
       const customerData = {
             firstName:firstName,
@@ -45,7 +47,7 @@
   
   </script>
   
-  
+  <!-- Displays the edti-form or add-new-form -->
   <Modal title="Add Customer" on:cancel>
   <div class="container-add-Customer">
     <form on:submit|preventDefault={submitForm}>

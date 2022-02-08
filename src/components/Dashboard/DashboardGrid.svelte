@@ -4,6 +4,7 @@
     import projects from "../Prjct/Projects-store";
     import customers from "../Customer/customers-store";
 
+    //Takes title,pageAdress and items as props
     export let title;
     export let pageAdress;
     export let items;

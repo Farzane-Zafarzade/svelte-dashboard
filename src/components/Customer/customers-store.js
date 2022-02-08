@@ -1,5 +1,6 @@
 import { writable } from "svelte/store";
 
+// Creates and initials customers 
 const customers = writable([
     {ID: "m1", firstName: "Neal", lastName: "Matthews", email:"Neal@test.com", mobileNummber:"07212345"},
     {ID: "m2", firstName: "Jamal", lastName: "Burnett", email:"Jamal@test.com", mobileNummber:"07212345" },
@@ -13,7 +14,12 @@ const customers = writable([
   ]);
 
   const customCustomersStore = {
+
+      //Allows interested parties to be notified whenever the store value changes.
       subscribe : customers.subscribe,
+
+      //takes a customerData object as a parameter and adds it to the customers.
+      //Creates id and add it to the customerData
       addCustomer: (customerData) => {
          const newCustomer = {
              ...customerData,
@@ -23,6 +29,8 @@ const customers = writable([
              return [newCustomer, ...items]
          });
       },
+
+      // the customerData object and id as parameters and updates the customer’s data into the customers.
       updateCustomer: (id, customerData) => {
           customers.update(items => {
              const customerIndex = items.findIndex(i => i.ID === id);
@@ -32,6 +40,8 @@ const customers = writable([
              return updatedCustomers;
           })
       },
+
+      //Takes a id as parameters and deletes the customer with the same id from the customers.
       deleteCustomer: (id) => {
           customers.update(items => {
               return items.filter(i => i.ID !== id);

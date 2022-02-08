@@ -6,19 +6,23 @@
     let editedId;
     let addNew;
 
+    //Sets addNew and editedId to null to close modal window
 	function savedOrder() {
       addNew = null;
       editedId = null;
 	}
 
+    //Sets addNew and editedId to null to close modal window
     function cancelAdd() {
         addNew = null;
         editedId = null;
     }
 
+    //Calls deleteOrder to delete an order
     function deleteOrder(event) {
         orders.deleteOrder(event.detail);
     }
+
 
     function editOrder(event) {
         addNew="add"

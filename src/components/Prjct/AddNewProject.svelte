@@ -10,7 +10,7 @@
     let status="";
     let dueDate="";
     
-  
+   // Checks if id is not null display the project data to edit
     if(id){
         const unsubscribe = projects.subscribe(items => {
         const selectedProject = items.find(i => i.id === id);
@@ -23,12 +23,15 @@
       unsubscribe();
     }
   
+    // Creating Variables for Dispatch Scripts
     const dispatch = createEventDispatcher();
   
+    // Dispatching cancel-signal to parent component
     function cancel(){
       dispatch("cancel");
     }
   
+    // Creates a new project or updates the data of an existing project in the projects
     function submitForm() {
       const projectData = {
             projectName:projectName,
@@ -47,6 +50,7 @@
   
   </script>
   
+  <!-- Displays the edti-form or add-new-form -->
   <Modal title="Add Project" on:cancel>
   <div class="container-add-Customer">
     <form on:submit|preventDefault={submitForm}>

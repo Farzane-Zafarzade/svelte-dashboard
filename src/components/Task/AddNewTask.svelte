@@ -9,7 +9,7 @@
     let dueDate="";
     let status="";
     
-  
+  // Checks if id is not null display the task data to edit
     if(id){
         const unsubscribe = tasks.subscribe(items => {
         const selectedTask = items.find(i => i.id === id);
@@ -21,12 +21,15 @@
       unsubscribe();
     }
   
+    // Creating Variables for Dispatch Scripts
     const dispatch = createEventDispatcher();
   
+    // Dispatching cancel-signal to parent component
     function cancel(){
       dispatch("cancel");
     }
   
+    // Creates a new task or updates the data of an existing task in the tasks
     function submitForm() {
       const taskData = {
             taskName:taskName,
@@ -44,7 +47,7 @@
   
   </script>
   
-  
+   <!-- Displays the edti-form or add-new-form -->
   <Modal title="Add Task" on:cancel>
   <div class="container-add-Customer">
     <form on:submit|preventDefault={submitForm}>

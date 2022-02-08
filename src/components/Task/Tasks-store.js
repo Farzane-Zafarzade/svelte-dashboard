@@ -1,5 +1,6 @@
 import { writable } from "svelte/store";
 
+// Creates and initials projects
 const tasks = writable([
     {id:"t1", taskName: "Create a Dashboard UI", dueDate: "07 Oct, 2021", status: "Complete"},
     {id:"t2", taskName: "Create a Dashboard UI", dueDate: "07 Oct, 2021", status: "In-progress"},
@@ -13,7 +14,12 @@ const tasks = writable([
   ]);
     
   const customTasksStore = {
+
+     //Allows interested parties to be notified whenever the store value changes.
     subscribe : tasks.subscribe,
+
+    //Takes a taskData object as a parameter and adds it to the tasks.
+    //Creates id and add it to the taskData
     addTask: (taskData) => {
        const newTask = {
            ...taskData,
@@ -23,6 +29,8 @@ const tasks = writable([
            return [newTask, ...items]
        });
     },
+
+     //Takes the projectData object and id as parameters and updates the project's data into the projects.
     updateTask: (id, taskData) => {
         tasks.update(items => {
            const taskIndex = items.findIndex(i => i.id === id);
@@ -32,6 +40,8 @@ const tasks = writable([
            return updatedTasks;
         })
     },
+
+    //Takes an id as parameters and deletes the project with the same id from the projects.
     deleteTask: (id) => {
         tasks.update(items => {
             return items.filter(i => i.id !== id);

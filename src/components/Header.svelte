@@ -1,10 +1,12 @@
 <script>
     import Profile from "../Images/Profile.jpg"
-    
+
+    // Takes the profile name and title as props
     export let profileName ="Farzane Zafar";
     export let title ="Super Admin";
 </script>
 
+<!-- Displays the header-->
 <header>
         <h2>
             <label for="nav-toggle">

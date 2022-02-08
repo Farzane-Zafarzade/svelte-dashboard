@@ -10,7 +10,7 @@
     let total="";
     let paymentStatus="";
     
-  
+  // Checks if id is not null display the order data to edit
     if(id){
         const unsubscribe = orders.subscribe(items => {
         const selectedOrder = items.find(i => i.id === id);
@@ -23,12 +23,15 @@
       unsubscribe();
     }
   
+    // Creating Variables for Dispatch Scripts
     const dispatch = createEventDispatcher();
   
+    // Dispatching cancel-signal to parent component
     function cancel(){
       dispatch("cancel");
     }
   
+    // Creates a new order or updates the data of an existing order in the orders
     function submitForm() {
       const orderData = {
             billingName:billingName,
@@ -47,34 +50,8 @@
     };
   
   </script>
-  <style>
-    .cancel-button{
-      background: white;
-    border-radius: 10px;
-    color: var(--main-color);
-    font-size: .9rem;
-    padding: .5rem 1rem;
-    border: 1px solid var(--main-color);
-    cursor: pointer;
-    }
-    .cancel-button:hover{
-      border: 2px solid var(--main-color);
-    }
-    .save-button{
-    background: rgb(75, 184, 138);
-    border-radius: 10px;
-    color: white;
-    font-size: .9rem;
-    padding: .5rem 1rem;
-    border: 1px solid rgb(75, 184, 138);
-    cursor: pointer
-    }
-    .save-button:hover{
-      border: 3px solid rgb(75, 184, 138);
-    }
-  </style>
   
-  
+  <!-- Displays the edti-form or add-new-form -->
   <Modal title="Add Order" on:cancel>
   <div class="container-add-Customer">
     <form on:submit|preventDefault={submitForm}>

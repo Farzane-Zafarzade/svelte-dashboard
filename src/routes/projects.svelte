@@ -6,6 +6,7 @@
     let editedId = null;
     let addNew; 
 
+    //Calls deleteProject to delete a project
     function deleteProject(event) {
         projects.deleteProject(event.detail);
     }
@@ -15,11 +16,13 @@
         editedId = event.detail;
     }
 
+    //Sets addNew and editedId to null to close modal window
     function savedCustomer() {
       addNew = null;
       editedId = null;
 	}
 
+    //Sets addNew and editedId to null to close modal window
     function cancelAdd() {
         addNew = null;
         editedId = null;

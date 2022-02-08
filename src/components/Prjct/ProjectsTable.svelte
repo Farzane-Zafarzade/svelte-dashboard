@@ -2,12 +2,16 @@
     import { createEventDispatcher } from "svelte"; 
 
     const tableHeading = ["Project Title", "Departemnt", "Due Date", "Status"];
+
+    // Takes tableData as a prop
     export let tableData=[];
 
+    // Creating Variables for Dispatch Scripts
     const dispatch = createEventDispatcher();
 
   </script>
   
+  <!-- Displays the projects table -->
   <table width ="100%" >
     <thead>
         <tr>
