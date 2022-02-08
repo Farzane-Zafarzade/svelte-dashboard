@@ -1,5 +1,6 @@
 <script>
     import { createEventDispatcher } from "svelte";
+    
     export let tableData = [];
 
     const dispatch = createEventDispatcher();
